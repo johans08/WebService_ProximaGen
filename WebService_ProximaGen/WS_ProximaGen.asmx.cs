@@ -16,7 +16,7 @@ namespace WebService_ProximaGen
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
+    [System.Web.Script.Services.ScriptService]
     public class WS_ProximaGen : System.Web.Services.WebService
     {
 
@@ -24,7 +24,7 @@ namespace WebService_ProximaGen
         public DataSet AgregarEstado(string descripcionEstado)
         {
             Procedures _procedures = new Procedures();
-            return _procedures.CUD_Estados(Constantes.agregar, 0, descripcionEstado);
+            return _procedures.CUD_Estados(Constantes.agregar, Constantes.vacio, descripcionEstado);
         }
 
         [WebMethod]
@@ -39,6 +39,13 @@ namespace WebService_ProximaGen
         {
             Procedures _procedures = new Procedures();
             return _procedures.CUD_Estados(Constantes.eliminar, idEstado, Constantes.nulo);
+        }
+
+        [WebMethod]
+        public DataSet LeerEstados(int inicio, int final)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.Read_Estados(inicio, final);
         }
     }
 }

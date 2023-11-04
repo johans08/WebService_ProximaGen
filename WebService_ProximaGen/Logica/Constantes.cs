@@ -11,6 +11,8 @@ namespace WebService_ProximaGen.Logica
         public static int modificar = 2;
         public static int eliminar = 3;
 
-        public static string nulo = null;
+        public static int vacio = 0;
+
+        public static string nulo = "";
     }
 }

@@ -36,6 +36,31 @@ namespace WebService_ProximaGen.Base
             return result;
         }
 
+        public DataSet Read_Estados(int inicio, int final)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("Read_Estados");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@inicio", inicio);
+                sqlCommand.Parameters.AddWithValue("@final", final);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
 
     }
 }
