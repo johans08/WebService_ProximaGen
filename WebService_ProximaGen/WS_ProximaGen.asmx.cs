@@ -136,7 +136,7 @@ namespace WebService_ProximaGen
         public DataSet Leer_Permisos(int inicio, int final)
         {
             Procedures _procedures = new Procedures();
-            return _procedures.Leer_Permisos(inicio, final);
+            return _procedures.Read_Permisos(inicio, final);
         }
     }
 }
