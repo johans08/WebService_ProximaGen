@@ -116,31 +116,18 @@ namespace WebService_ProximaGen.Base
             return result;
         }
 
-<<<<<<< HEAD
         public DataSet CUD_Roles(int modo, int idRol, string descripcionRol)
-=======
-
-        public DataSet CUD_Generos(int modo, int idGenero, string genero)
->>>>>>> origin/Javier
         {
             SqlCommand sqlCommand = new SqlCommand();
             DataSet dataSet = new DataSet();
             DataSet result;
             try
             {
-<<<<<<< HEAD
                 sqlCommand = new SqlCommand("CUD_Roles");
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@modo", modo);
                 sqlCommand.Parameters.AddWithValue("@idRol", idRol);
                 sqlCommand.Parameters.AddWithValue("@descripcionRol", descripcionRol);
-=======
-                sqlCommand = new SqlCommand("CUD_Generos");
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@modo", modo);
-                sqlCommand.Parameters.AddWithValue("@idGenero", idGenero);
-                sqlCommand.Parameters.AddWithValue("@genero", genero);
->>>>>>> origin/Javier
                 dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
                 result = dataSet;
             }
@@ -155,23 +142,15 @@ namespace WebService_ProximaGen.Base
             }
             return result;
         }
-<<<<<<< HEAD
 
         public DataSet Read_Roles(int inicio, int final)
-=======
-        public DataSet Read_Generos(int inicio, int final)
->>>>>>> origin/Javier
         {
             SqlCommand sqlCommand = new SqlCommand();
             DataSet dataSet = new DataSet();
             DataSet result;
             try
             {
-<<<<<<< HEAD
                 sqlCommand = new SqlCommand("Read_Roles");
-=======
-                sqlCommand = new SqlCommand("Read_Generos");
->>>>>>> origin/Javier
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@inicio", inicio);
                 sqlCommand.Parameters.AddWithValue("@final", final);
@@ -190,26 +169,93 @@ namespace WebService_ProximaGen.Base
             return result;
         }
 
-<<<<<<< HEAD
-        public DataSet CUD_AsignarPermisoXRol(int modo, int idPermiso, int idRol)
-=======
-
-
-        public DataSet CUD_Permisos(int modo, int idPermiso, string permiso)
->>>>>>> origin/Javier
+        public DataSet CUD_Generos(int modo, int idGenero, string genero)
         {
             SqlCommand sqlCommand = new SqlCommand();
             DataSet dataSet = new DataSet();
             DataSet result;
             try
             {
-<<<<<<< HEAD
+                sqlCommand = new SqlCommand("CUD_Generos");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@modo", modo);
+                sqlCommand.Parameters.AddWithValue("@idGenero", idGenero);
+                sqlCommand.Parameters.AddWithValue("@genero", genero);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
+
+        public DataSet Read_Generos(int inicio, int final)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("Read_Generos");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@inicio", inicio);
+                sqlCommand.Parameters.AddWithValue("@final", final);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
+
+        public DataSet CUD_AsignarPermisoXRol(int modo, int idPermiso, int idRol)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
                 sqlCommand = new SqlCommand("CUD_AsignarPermisosARol");
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@modo", modo);
                 sqlCommand.Parameters.AddWithValue("@idPermiso", idPermiso);
                 sqlCommand.Parameters.AddWithValue("@idRol", idRol);
-=======
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
+
+        public DataSet CUD_Permisos(int modo, int idPermiso, string permiso)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
                 sqlCommand = new SqlCommand("CUD_Permisos");
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@modo", modo);
@@ -240,7 +286,30 @@ namespace WebService_ProximaGen.Base
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@inicio", inicio);
                 sqlCommand.Parameters.AddWithValue("@final", final);
->>>>>>> origin/Javier
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
+        public DataSet Read_PermisosXRol(int idRol)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("Read_PermisosXRol");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@idRol", idRol);
                 dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
                 result = dataSet;
             }
@@ -256,22 +325,13 @@ namespace WebService_ProximaGen.Base
             return result;
         }
 
-<<<<<<< HEAD
-        public DataSet Read_PermisosXRol(int idRol)
-=======
         public DataSet CUD_Contactos(int modo, int idContacto, string descripcionContacto, int TipoContactos_idTipoContacto, int Personas_idPersona)
->>>>>>> origin/Javier
         {
             SqlCommand sqlCommand = new SqlCommand();
             DataSet dataSet = new DataSet();
             DataSet result;
             try
             {
-<<<<<<< HEAD
-                sqlCommand = new SqlCommand("Read_PermisosXRol");
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@idRol", idRol);
-=======
                 sqlCommand = new SqlCommand("CUD_Contactos");
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@modo", modo);
@@ -293,6 +353,7 @@ namespace WebService_ProximaGen.Base
             }
             return result;
         }
+
         public DataSet Read_ContactoXPersona(int idPersona)
         {
             SqlCommand sqlCommand = new SqlCommand();
@@ -349,6 +410,7 @@ namespace WebService_ProximaGen.Base
             }
             return result;
         }
+
         public DataSet Read_TarjetaXPersona(int idPersona)
         {
             SqlCommand sqlCommand = new SqlCommand();
@@ -359,7 +421,6 @@ namespace WebService_ProximaGen.Base
                 sqlCommand = new SqlCommand("Read_TarjetaXPersona");
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.Parameters.AddWithValue("@idPersona", idPersona);
->>>>>>> origin/Javier
                 dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
                 result = dataSet;
             }

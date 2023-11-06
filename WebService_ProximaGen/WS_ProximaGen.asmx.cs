@@ -48,14 +48,12 @@ namespace WebService_ProximaGen
             return _procedures.Read_Estados(inicio, final);
         }
 
-
         [WebMethod]
         public DataSet AgregarTipoContacto(string descripcionTipoContacto)
         {
             Procedures _procedures = new Procedures();
             return _procedures.CUD_Tipo_Contactos(Constantes.agregar, Constantes.vacio, descripcionTipoContacto);
         }
-
 
         [WebMethod]
         public DataSet ModificarTipoContacto(int idTipoContacto, string descripcionTipoContacto)
@@ -78,26 +76,15 @@ namespace WebService_ProximaGen
             return _procedures.Read_Tipo_Contactos(inicio, final);
         }
 
-<<<<<<< HEAD
         [WebMethod]
         public DataSet AgregarRol(string descripcionRol)
         {
             Procedures _procedures = new Procedures();
             return _procedures.CUD_Roles(Constantes.agregar, Constantes.vacio, descripcionRol);
-=======
-
-
-        [WebMethod]
-        public DataSet AgregarGenero(string genero)
-        {
-            Procedures _procedures = new Procedures();
-            return _procedures.CUD_Generos(Constantes.agregar, Constantes.vacio, genero);
->>>>>>> origin/Javier
         }
 
 
         [WebMethod]
-<<<<<<< HEAD
         public DataSet ModificarRol(int idRol, string descripcionRol)
         {
             Procedures _procedures = new Procedures();
@@ -146,7 +133,14 @@ namespace WebService_ProximaGen
             return _procedures.Read_PermisosXRol(idRol);
         }
 
-=======
+        [WebMethod]
+        public DataSet AgregarGenero(string genero)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Generos(Constantes.agregar, Constantes.vacio, genero);
+        }
+
+        [WebMethod]
         public DataSet ModificarGenero(int idGenero, string genero)
         {
             Procedures _procedures = new Procedures();
@@ -256,6 +250,5 @@ namespace WebService_ProximaGen
             Procedures _procedures = new Procedures();
             return _procedures.Read_TarjetaXPersona(idPersona);
         }
->>>>>>> origin/Javier
     }
 }
