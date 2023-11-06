@@ -275,5 +275,61 @@ namespace WebService_ProximaGen.Base
             }
             return result;
         }
+
+        public DataSet CUD_Tarjetas(int modo, int idTarjeta, string numeroTarjeta, int expiracionMes, int expiracionAnno, string cvv, int Personas_idPersona, int Estados_idEstado)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("CUD_Tarjetas");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@modo", modo);
+                sqlCommand.Parameters.AddWithValue("@idTarjeta", idTarjeta);
+                sqlCommand.Parameters.AddWithValue("@numeroTarjeta", numeroTarjeta);
+                sqlCommand.Parameters.AddWithValue("@expiracionMes ", expiracionMes);
+                sqlCommand.Parameters.AddWithValue("@expiracionAnno", expiracionAnno);
+                sqlCommand.Parameters.AddWithValue("@cvv", cvv);
+                sqlCommand.Parameters.AddWithValue("@Personas_idPersona", Personas_idPersona);
+                sqlCommand.Parameters.AddWithValue("@Estados_idEstado", Estados_idEstado);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
+        public DataSet Read_TarjetaXPersona(int idPersona)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("Read_TarjetaXPersona");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@idPersona", idPersona);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
     }
 }

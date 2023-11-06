@@ -168,5 +168,35 @@ namespace WebService_ProximaGen
             Procedures _procedures = new Procedures();
             return _procedures.Read_ContactoXPersona(idPersona);
         }
+
+
+        [WebMethod]
+        public DataSet AgregarTarjetas(string numeroTarjeta, int expiracionMes, int expiracionAnno, string cvv,int Personas_idPersona, int Estados_idEstado)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Tarjetas(Constantes.agregar, Constantes.vacio, numeroTarjeta, expiracionMes, expiracionAnno, cvv, Personas_idPersona, Estados_idEstado);
+        }
+
+
+        [WebMethod]
+        public DataSet ModificarTarjetas(int idTarjeta, string numeroTarjeta, int expiracionMes, int expiracionAnno, string cvv, int Personas_idPersona, int Estados_idEstado)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Tarjetas(Constantes.modificar, idTarjeta, numeroTarjeta, expiracionMes, expiracionAnno, cvv, Personas_idPersona, Estados_idEstado);
+        }
+
+        [WebMethod]
+        public DataSet EliminarTarjetas(int idTarjeta)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Tarjetas(Constantes.eliminar, idTarjeta, Constantes.nulo, Constantes.vacio, Constantes.vacio, Constantes.nulo, Constantes.vacio, Constantes.vacio);
+        }
+
+        [WebMethod]
+        public DataSet Leer_Tarjetas(int idPersona)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.Read_TarjetaXPersona(idPersona);
+        }
     }
 }
