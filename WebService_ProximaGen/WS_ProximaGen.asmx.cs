@@ -78,15 +78,26 @@ namespace WebService_ProximaGen
             return _procedures.Read_Tipo_Contactos(inicio, final);
         }
 
+<<<<<<< HEAD
         [WebMethod]
         public DataSet AgregarRol(string descripcionRol)
         {
             Procedures _procedures = new Procedures();
             return _procedures.CUD_Roles(Constantes.agregar, Constantes.vacio, descripcionRol);
+=======
+
+
+        [WebMethod]
+        public DataSet AgregarGenero(string genero)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Generos(Constantes.agregar, Constantes.vacio, genero);
+>>>>>>> origin/Javier
         }
 
 
         [WebMethod]
+<<<<<<< HEAD
         public DataSet ModificarRol(int idRol, string descripcionRol)
         {
             Procedures _procedures = new Procedures();
@@ -135,5 +146,116 @@ namespace WebService_ProximaGen
             return _procedures.Read_PermisosXRol(idRol);
         }
 
+=======
+        public DataSet ModificarGenero(int idGenero, string genero)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Generos(Constantes.modificar, idGenero, genero);
+        }
+
+        [WebMethod]
+        public DataSet EliminarGenero(int idGenero)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Generos(Constantes.eliminar, idGenero, Constantes.nulo);
+        }
+
+        [WebMethod]
+        public DataSet LeerGenero(int inicio, int final)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.Read_Generos(inicio, final);
+        }
+
+
+        [WebMethod]
+        public DataSet AgregarPermisos(string permiso)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Permisos(Constantes.agregar, Constantes.vacio, permiso);
+        }
+
+
+        [WebMethod]
+        public DataSet ModificarPermisos(int idPermiso, string permiso)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Permisos(Constantes.modificar, idPermiso, permiso);
+        }
+
+        [WebMethod]
+        public DataSet EliminarPermisos(int idPermiso)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Permisos(Constantes.eliminar, idPermiso, Constantes.nulo);
+        }
+
+        [WebMethod]
+        public DataSet Leer_Permisos(int inicio, int final)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.Read_Permisos(inicio, final);
+        }
+
+
+        [WebMethod]
+        public DataSet AgregarContactos(string descripcionContacto, int idTipoContacto, int idTipoPersona)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Contactos(Constantes.agregar, Constantes.vacio, descripcionContacto, idTipoContacto, idTipoPersona);
+        }
+
+
+        [WebMethod]
+        public DataSet ModificarContactos(int idContacto, string descripcionContacto, int idTipoContacto, int idTipoPersona)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Contactos(Constantes.modificar, idContacto, descripcionContacto, idTipoContacto, idTipoPersona);
+        }
+
+        [WebMethod]
+        public DataSet EliminarContactos(int idContacto)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Contactos(Constantes.eliminar, idContacto, Constantes.nulo, Constantes.vacio, Constantes.vacio);
+        }
+
+        [WebMethod]
+        public DataSet Leer_Contactos(int idPersona)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.Read_ContactoXPersona(idPersona);
+        }
+
+
+        [WebMethod]
+        public DataSet AgregarTarjetas(string numeroTarjeta, int expiracionMes, int expiracionAnno, string cvv,int Personas_idPersona, int Estados_idEstado)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Tarjetas(Constantes.agregar, Constantes.vacio, numeroTarjeta, expiracionMes, expiracionAnno, cvv, Personas_idPersona, Estados_idEstado);
+        }
+
+
+        [WebMethod]
+        public DataSet ModificarTarjetas(int idTarjeta, string numeroTarjeta, int expiracionMes, int expiracionAnno, string cvv, int Personas_idPersona, int Estados_idEstado)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Tarjetas(Constantes.modificar, idTarjeta, numeroTarjeta, expiracionMes, expiracionAnno, cvv, Personas_idPersona, Estados_idEstado);
+        }
+
+        [WebMethod]
+        public DataSet EliminarTarjetas(int idTarjeta)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Tarjetas(Constantes.eliminar, idTarjeta, Constantes.nulo, Constantes.vacio, Constantes.vacio, Constantes.nulo, Constantes.vacio, Constantes.vacio);
+        }
+
+        [WebMethod]
+        public DataSet Leer_Tarjetas(int idPersona)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.Read_TarjetaXPersona(idPersona);
+        }
+>>>>>>> origin/Javier
     }
 }
