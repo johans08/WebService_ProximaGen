@@ -78,5 +78,62 @@ namespace WebService_ProximaGen
             return _procedures.Read_Tipo_Contactos(inicio, final);
         }
 
+        [WebMethod]
+        public DataSet AgregarRol(string descripcionRol)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Roles(Constantes.agregar, Constantes.vacio, descripcionRol);
+        }
+
+
+        [WebMethod]
+        public DataSet ModificarRol(int idRol, string descripcionRol)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Roles(Constantes.modificar, idRol, descripcionRol);
+        }
+
+        [WebMethod]
+        public DataSet EliminarRol(int idRol)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Roles(Constantes.eliminar, idRol, Constantes.nulo);
+        }
+
+        [WebMethod]
+        public DataSet LeerRoles(int inicio, int final)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.Read_Roles(inicio, final);
+        }
+
+        [WebMethod]
+        public DataSet AgregarPermisoXRol(int idPermiso, int idRol)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_AsignarPermisoXRol(Constantes.agregar, idPermiso, idRol);
+        }
+
+        [WebMethod]
+        public DataSet ModificarPermisoXRol(int idPermiso, int idRol)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_AsignarPermisoXRol(Constantes.modificar, idPermiso, idRol);
+        }
+
+        [WebMethod]
+        public DataSet EliminarPermisoXRol(int idPermiso, int idRol)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_AsignarPermisoXRol(Constantes.eliminar, idPermiso, idRol);
+        }
+
+        [WebMethod]
+        public DataSet LeerPermisosXRoles(int idRol)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.Read_PermisosXRol(idRol);
+        }
+
     }
 }
