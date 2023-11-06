@@ -138,5 +138,35 @@ namespace WebService_ProximaGen
             Procedures _procedures = new Procedures();
             return _procedures.Read_Permisos(inicio, final);
         }
+
+
+        [WebMethod]
+        public DataSet AgregarContactos(string descripcionContacto, int idTipoContacto, int idTipoPersona)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Contactos(Constantes.agregar, Constantes.vacio, descripcionContacto, idTipoContacto, idTipoPersona);
+        }
+
+
+        [WebMethod]
+        public DataSet ModificarContactos(int idContacto, string descripcionContacto, int idTipoContacto, int idTipoPersona)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Contactos(Constantes.modificar, idContacto, descripcionContacto, idTipoContacto, idTipoPersona);
+        }
+
+        [WebMethod]
+        public DataSet EliminarContactos(int idContacto)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Contactos(Constantes.eliminar, idContacto, Constantes.nulo, Constantes.vacio, Constantes.vacio);
+        }
+
+        [WebMethod]
+        public DataSet Leer_Contactos(int idPersona)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.Read_ContactoXPersona(idPersona);
+        }
     }
 }

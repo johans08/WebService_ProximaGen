@@ -222,5 +222,58 @@ namespace WebService_ProximaGen.Base
             }
             return result;
         }
+
+        public DataSet CUD_Contactos(int modo, int idContacto, string descripcionContacto, int TipoContactos_idTipoContacto, int Personas_idPersona)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("CUD_Contactos");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@modo", modo);
+                sqlCommand.Parameters.AddWithValue("@idContacto", idContacto);
+                sqlCommand.Parameters.AddWithValue("@descripcionContacto", descripcionContacto);
+                sqlCommand.Parameters.AddWithValue("@TipoContactos_idTipoContacto ", TipoContactos_idTipoContacto);
+                sqlCommand.Parameters.AddWithValue("@Personas_idPersona", Personas_idPersona);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
+        public DataSet Read_ContactoXPersona(int idPersona)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("Read_ContactoXPersona");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@idPersona", idPersona);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
     }
 }
