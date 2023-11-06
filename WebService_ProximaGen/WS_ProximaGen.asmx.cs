@@ -47,5 +47,36 @@ namespace WebService_ProximaGen
             Procedures _procedures = new Procedures();
             return _procedures.Read_Estados(inicio, final);
         }
+
+
+        [WebMethod]
+        public DataSet AgregarTipoContacto(string descripcionTipoContacto)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Tipo_Contactos(Constantes.agregar, Constantes.vacio, descripcionTipoContacto);
+        }
+
+
+        [WebMethod]
+        public DataSet ModificarTipoContacto(int idTipoContacto, string descripcionTipoContacto)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Tipo_Contactos(Constantes.modificar, idTipoContacto, descripcionTipoContacto);
+        }
+
+        [WebMethod]
+        public DataSet EliminarTipoContacto(int idTipoContacto)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Tipo_Contactos(Constantes.eliminar, idTipoContacto, Constantes.nulo);
+        }
+
+        [WebMethod]
+        public DataSet LeerTipoContactos(int inicio, int final)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.Read_Tipo_Contactos(inicio, final);
+        }
+
     }
 }

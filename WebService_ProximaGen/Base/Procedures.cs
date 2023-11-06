@@ -62,5 +62,58 @@ namespace WebService_ProximaGen.Base
             return result;
         }
 
+        public DataSet CUD_Tipo_Contactos(int modo, int idTipoContacto, string descripcionTipoContacto)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("CUD_Tipo_Contactos");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@modo", modo);
+                sqlCommand.Parameters.AddWithValue("@idTipoContacto", idTipoContacto);
+                sqlCommand.Parameters.AddWithValue("@descripcionTipoContacto", descripcionTipoContacto);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
+
+
+        public DataSet Read_Tipo_Contactos(int inicio, int final)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("Read_Tipo_Contactos");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@inicio", inicio);
+                sqlCommand.Parameters.AddWithValue("@final", final);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
     }
 }
