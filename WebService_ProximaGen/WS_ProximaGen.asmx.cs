@@ -78,5 +78,35 @@ namespace WebService_ProximaGen
             return _procedures.Read_Tipo_Contactos(inicio, final);
         }
 
+
+
+        [WebMethod]
+        public DataSet AgregarGenero(string genero)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Generos(Constantes.agregar, Constantes.vacio, genero);
+        }
+
+
+        [WebMethod]
+        public DataSet ModificarGenero(int idGenero, string genero)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Generos(Constantes.modificar, idGenero, genero);
+        }
+
+        [WebMethod]
+        public DataSet EliminarGenero(int idGenero)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUD_Generos(Constantes.eliminar, idGenero, Constantes.nulo);
+        }
+
+        [WebMethod]
+        public DataSet LeerGenero(int inicio, int final)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.Read_Generos(inicio, final);
+        }
     }
 }
