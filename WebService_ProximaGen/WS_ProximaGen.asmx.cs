@@ -111,7 +111,7 @@ namespace WebService_ProximaGen
 
 
         [WebMethod]
-        public DataSet AgregarPermiso(string permiso)
+        public DataSet AgregarPermisos(string permiso)
         {
             Procedures _procedures = new Procedures();
             return _procedures.CUD_Permisos(Constantes.agregar, Constantes.vacio, permiso);
@@ -119,14 +119,14 @@ namespace WebService_ProximaGen
 
 
         [WebMethod]
-        public DataSet ModificarPermiso(int idPermiso, string permiso)
+        public DataSet ModificarPermisos(int idPermiso, string permiso)
         {
             Procedures _procedures = new Procedures();
             return _procedures.CUD_Permisos(Constantes.modificar, idPermiso, permiso);
         }
 
         [WebMethod]
-        public DataSet EliminarPermiso(int idPermiso)
+        public DataSet EliminarPermisos(int idPermiso)
         {
             Procedures _procedures = new Procedures();
             return _procedures.CUD_Permisos(Constantes.eliminar, idPermiso, Constantes.nulo);
@@ -136,7 +136,7 @@ namespace WebService_ProximaGen
         public DataSet Leer_Permisos(int inicio, int final)
         {
             Procedures _procedures = new Procedures();
-            return _procedures.Read_Permisos(inicio, final);
+            return _procedures.Leer_Permisos(inicio, final);
         }
     }
 }
