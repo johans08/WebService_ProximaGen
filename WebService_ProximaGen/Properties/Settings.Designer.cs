@@ -26,7 +26,8 @@ namespace WebService_ProximaGen.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=localhost;Database=ProximaGen;Integrated Security=True;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=ProximaGen.mssql.somee.com;initial catalog=ProximaGen;user id=johans08_SQL" +
+            "Login_1;pwd=f5m33a32fr")]
         public string Setting {
             get {
                 return ((string)(this["Setting"]));

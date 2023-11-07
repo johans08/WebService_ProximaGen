@@ -5,10 +5,10 @@
     <Setting Name="Setting" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionString&gt;Server=localhost;Database=ProximaGen;Integrated Security=True;&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Server=ProximaGen.mssql.somee.com;initial catalog=ProximaGen;user id=johans08_SQLLogin_1;pwd=f5m33a32fr&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Server=localhost;Database=ProximaGen;Integrated Security=True;</Value>
+      <Value Profile="(Default)">Server=ProximaGen.mssql.somee.com;initial catalog=ProximaGen;user id=johans08_SQLLogin_1;pwd=f5m33a32fr</Value>
     </Setting>
   </Settings>
 </SettingsFile>
