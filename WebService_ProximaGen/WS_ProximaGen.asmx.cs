@@ -223,7 +223,7 @@ namespace WebService_ProximaGen
 
 
         [WebMethod]
-        public DataSet AgregarTarjetas(string numeroTarjeta, int expiracionMes, int expiracionAnno, string cvv,int Personas_idPersona, int Estados_idEstado)
+        public DataSet AgregarTarjetas(string numeroTarjeta, int expiracionMes, int expiracionAnno, string cvv, int Personas_idPersona, int Estados_idEstado)
         {
             Procedures _procedures = new Procedures();
             return _procedures.CUD_Tarjetas(Constantes.agregar, Constantes.vacio, numeroTarjeta, expiracionMes, expiracionAnno, cvv, Personas_idPersona, Estados_idEstado);
@@ -249,6 +249,55 @@ namespace WebService_ProximaGen
         {
             Procedures _procedures = new Procedures();
             return _procedures.Read_TarjetaXPersona(idPersona);
+        }
+
+        [WebMethod]
+        public DataSet AgregarPersona_Usuario_Contacto(int cedula, string nombre, string apellido, string apellido2, DateTime fechaNacimiento, int idGenero, int idEstado, string descripcionContacto, int idTipoContacto, string nombreUsuario, string contrasenna, string correo, int idRol)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUDPersonaContactoUsuario(Constantes.agregar, cedula, nombre, apellido, apellido2, fechaNacimiento, idGenero, idEstado, descripcionContacto, idTipoContacto, nombreUsuario, contrasenna, correo, idRol);
+        }
+
+        [WebMethod]
+        public DataSet ModificarPersona_Usuario_Contacto(int cedula, string nombre, string apellido, string apellido2, DateTime fechaNacimiento, int idGenero, int idEstado, string descripcionContacto, int idTipoContacto, string nombreUsuario, string contrasenna, string correo, int idRol)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUDPersonaContactoUsuario(Constantes.modificar, cedula, nombre, apellido, apellido2, fechaNacimiento, idGenero, idEstado, descripcionContacto, idTipoContacto, nombreUsuario, contrasenna, correo, idRol);
+        }
+
+        [WebMethod]
+        public DataSet EliminarPersona_Usuario_Contacto(int cedula, string nombre, string apellido, string apellido2, DateTime fechaNacimiento, int idGenero, int idEstado, string descripcionContacto, int idTipoContacto, string nombreUsuario, string contrasenna, string correo, int idRol)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.CUDPersonaContactoUsuario(Constantes.eliminar, cedula, nombre, apellido, apellido2, fechaNacimiento, idGenero, idEstado, descripcionContacto, idTipoContacto, nombreUsuario, contrasenna, correo, idRol);
+        }
+
+        [WebMethod]
+        public DataSet GetListadoPersonas()
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.GetListadoPersonas();
+        }
+
+        [WebMethod]
+        public DataSet GetPersonaContactoUsuraioXCedula(int cedula)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.GetPersonaContactoUsuraioXCedula(cedula);
+        }
+
+        [WebMethod]
+        public DataSet GetListadoUsuarios()
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.GetListadoUsuarios();
+        }
+
+        [WebMethod]
+        public DataSet Login(string usuario, string contrasenna)
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.SP_Login(usuario, contrasenna);
         }
     }
 }

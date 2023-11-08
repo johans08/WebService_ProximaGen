@@ -435,5 +435,142 @@ namespace WebService_ProximaGen.Base
             }
             return result;
         }
+
+        public DataSet CUDPersonaContactoUsuario(int modo, int cedula, string nombre, string apellido, string apellido2, DateTime fechaNacimiento, int idGenero, int idEstado, string descripcionContacto, int idTipoContacto, string nombreUsuario, string contrasenna, string correo, int idRol)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("CUDPersonaContactoUsuario");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@modo", modo);
+                sqlCommand.Parameters.AddWithValue("@cedula", cedula);
+                sqlCommand.Parameters.AddWithValue("@nombre", nombre);
+                sqlCommand.Parameters.AddWithValue("@apellido", apellido);
+                sqlCommand.Parameters.AddWithValue("@apellido2", apellido2);
+                sqlCommand.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
+                sqlCommand.Parameters.AddWithValue("@Generos_idGenero", idGenero);
+                sqlCommand.Parameters.AddWithValue("@Estados_idEstado", idEstado);
+                sqlCommand.Parameters.AddWithValue("@descripcionContacto", descripcionContacto);
+                sqlCommand.Parameters.AddWithValue("@TipoContactos_idTipoContacto", idTipoContacto);
+                sqlCommand.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
+                sqlCommand.Parameters.AddWithValue("@contrasenna", contrasenna);
+                sqlCommand.Parameters.AddWithValue("@correo", correo);
+                sqlCommand.Parameters.AddWithValue("@Roles_idRol", idRol);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
+
+        public DataSet GetListadoPersonas()
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("GetListadoPersonas");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
+
+        public DataSet GetPersonaContactoUsuraioXCedula(int cedula)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("GetPersonaContactoUsuraioXCedula");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@cedula", cedula);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
+
+        public DataSet GetListadoUsuarios()
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("GetListadoUsuarios");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
+
+        public DataSet SP_Login(string usuario, string contrasenna)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("SP_Login");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@usuario", usuario);
+                sqlCommand.Parameters.AddWithValue("@contrasenna", contrasenna);
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
     }
 }
