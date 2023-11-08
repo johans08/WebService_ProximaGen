@@ -572,5 +572,29 @@ namespace WebService_ProximaGen.Base
             }
             return result;
         }
+
+        public DataSet GetListadoTarjetas()
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            DataSet dataSet = new DataSet();
+            DataSet result;
+            try
+            {
+                sqlCommand = new SqlCommand("GetListadoTarjetas");
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                dataSet = base.EjecutaQueryYRetornaDataset(sqlCommand);
+                result = dataSet;
+            }
+            catch (Exception e)
+            {
+                result = null;
+            }
+            finally
+            {
+                base.Disponse(ref sqlCommand);
+                sqlCommand = null;
+            }
+            return result;
+        }
     }
 }

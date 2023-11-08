@@ -299,5 +299,12 @@ namespace WebService_ProximaGen
             Procedures _procedures = new Procedures();
             return _procedures.SP_Login(usuario, contrasenna);
         }
+
+        [WebMethod]
+        public DataSet GetListadoTarjetas()
+        {
+            Procedures _procedures = new Procedures();
+            return _procedures.GetListadoUsuarios();
+        }
     }
 }
